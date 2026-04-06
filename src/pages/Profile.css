@@ -1,0 +1,244 @@
+.profile-page-container {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #f7f7f7; /* Halka grey background */
+}
+
+.profile-card {
+    background-color: white;
+    width: 100%;
+    max-width: 900px; /* Bada card size */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* -------------------- HEADER -------------------- */
+.profile-header {
+    background-color: var(--maroon); /* Dark maroon color */
+    color: white;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* -------------------- USER INFO & TABS -------------------- */
+.user-section {
+    padding: 30px 30px 0;
+}
+
+.user-info-summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.user-initials {
+    width: 60px;
+    height: 60px;
+    background-color: var(--maroon);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.user-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.user-role {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* Tabs */
+.tabs-container {
+    display: flex;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab-button.active {
+    color: var(--maroon);
+    border-bottom-color: var(--maroon);
+    font-weight: 600;
+}
+
+.tab-button:hover:not(.active) {
+    color: #374151;
+}
+
+/* -------------------- TAB CONTENT (FORM) -------------------- */
+.tab-content-wrapper {
+    padding: 30px;
+}
+
+.profile-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for form fields */
+    gap: 30px;
+}
+
+.form-column label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-column input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-column input:focus {
+    outline: none;
+    border-color: var(--maroon); 
+    box-shadow: 0 0 0 1px var(--maroon);
+}
+
+.section-title {
+    font-size: 1.25rem;
+    color: var(--maroon);
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.update-password-title {
+    margin-top: 30px;
+}
+
+/* Password eye icon (Same as Login/Signup) */
+.password-input-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.password-input-wrapper input {
+    padding-right: 40px;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Form Actions (Buttons) */
+.form-actions {
+    grid-column: 1 / -1; /* Buttons span across both columns */
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.form-actions .btn-secondary {
+    background-color: var(--maroon);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.form-actions .btn-tertiary {
+    background-color: #e5e7eb;
+    color: #374151;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.form-actions .btn-secondary:hover {
+    background-color: #3b0417;
+}
+
+/* -------------------- FOOTER -------------------- */
+.profile-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-top: 1px solid #e5e7eb;
+    background-color: #fafafa;
+}
+
+.footer-links span {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.footer-socials i {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 700px) {
+    .profile-form-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+    .profile-card {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .profile-page-container {
+        padding: 0;
+    }
+    .user-section, .tab-content-wrapper {
+        padding: 20px 15px 0;
+    }
+    .profile-footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,147 @@
+:root {
+    --maroon: #4A051D;
+    --accent: #FF8800;
+    --text: #111827; 
+    --bg: #FFFFFF; 
+    --card: #f9fafb; 
+    --muted: #6b7280;
+}
+
+/* --- Base Navbar Styles --- */
+.navbar-header {
+    background-color: var(--maroon);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 78px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Brand/Logo --- */
+.navbar-brand a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem; 
+    font-weight: 700;
+}
+
+/* --- Action Buttons (Right Side) --- */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    /* ✅ GAP FIX: Increased gap to 15px for better separation */
+    gap: 15px; 
+}
+
+/* FINAL FIX: Right-aligned Navigation Links Container (UL) */
+.navbar-links-right {
+    list-style: none; /* Bullet points hata diye */
+    display: flex; /* Horizontal laye */
+    align-items: center; 
+    
+    gap: 15px; /* Links ke beech ka gap */
+    margin: 0;
+    padding: 0;
+    /* Links ko buttons se thoda door rakha */
+    margin-right: 20px;
+}
+
+/* Ensure list items are inline within the flex container */
+.navbar-links-right li {
+    display: flex; /* Har li item ko flex item bana diya */
+    align-items: center;
+}
+
+.navbar-links-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 0;
+    transition: color 0.2s;
+}
+
+.navbar-links-right a:hover { 
+    color: var(--accent);
+}
+
+/* My Profile Text Link Styling */
+.btn-profile-text {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 0; 
+    transition: color 0.2s;
+}
+.btn-profile-text:hover {
+    color: var(--accent);
+}
+
+
+/* Common Button Styles (For Login) */
+.btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+/* Primary Button (For Login) */
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e67a00;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Button */
+.search-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0 0 0 10px; 
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    transition: color 0.2s;
+}
+
+.search-button:hover .search-icon {
+    color: var(--accent);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .navbar-links-right {
+        gap: 10px;
+        margin-right: 15px;
+    }
+}
+@media (max-width: 900px) {
+    .navbar-links-right {
+        display: none; 
+    }
+    .navbar-container {
+        justify-content: space-between;
+    }
+}

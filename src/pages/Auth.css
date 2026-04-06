@@ -1,0 +1,214 @@
+.auth-page {
+    /* Calculates height: full screen minus the height of your header (assuming 78px) */
+    min-height: calc(100vh - 78px);
+    display: flex;
+    /* 💥 KEY CHANGE 1: Aligns the content (the card) to the top */
+    align-items: flex-start;
+    justify-content: center;
+    background: var(--bg);
+    /* 💥 KEY CHANGE 2: Adds space between the navbar and the card */
+    padding-top: 50px; 
+}
+
+.auth-container {
+    max-width: 850px; 
+    width: 90%;
+    /* 💥 KEY CHANGE 3: Removes the top and bottom margin, letting padding-top in .auth-page control vertical space */
+    margin: 0 auto; 
+    
+    display: grid;
+    grid-template-columns: 1fr 350px; 
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden; 
+}
+
+/* New Container for Forgot Password/Simple Pages */
+.auth-container-small {
+    max-width: 480px; 
+    width: 90%;
+    margin: 0 auto; 
+    background: var(--card); 
+    border-radius: 12px;
+    
+    /* 🔥 FIX 1: Enhanced Box Shadow for better visibility */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    
+    overflow: hidden;
+    padding: 40px; 
+}
+
+
+/* --- LEFT COLUMN: Promo Card (Image) --- */
+.promo-card {
+    /* Image background with Maroon overlay */
+    background-image: linear-gradient(rgba(74, 5, 29, 0.75), rgba(74, 5, 29, 0.75)), 
+                      url('../assets/login-bg.jpg'); /* Local image path assumed */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.promo-content p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* --- RIGHT COLUMN: Auth Card (Form) --- */
+.auth-card {
+    background: var(--card);
+    padding: 20px; 
+    text-align: center;
+}
+
+.auth-card h1 {
+    font-size: 2rem;
+    color: var(--maroon);
+    margin-bottom: 30px;
+}
+
+/* Form Group Styles */
+.auth-card .form-group {
+    text-align: left;
+    margin-bottom: 18px; 
+}
+
+.auth-card label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+/* Password Input Wrapper for Eye Icon */
+.password-input-wrapper {
+    position: relative;
+}
+
+.password-input-wrapper input {
+    padding-right: 40px; 
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.auth-card input:focus {
+    outline: none;
+    border-color: var(--maroon); 
+    box-shadow: 0 0 0 3px rgba(74, 5, 29, 0.1);
+}
+
+.auth-card .submit-btn {
+    width: 100%;
+    padding: 12px; 
+    font-size: 1.05rem;
+    margin-top: 15px;
+    /* 🔥 FIX 2: Button is Maroon (Primary) & Text is White */
+    background: var(--maroon); /* Changed to Maroon for Forgot Password form */
+    color: white; /* 🔥 Text Color is White */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.auth-card .submit-btn:hover {
+    background: #6a0000; /* Darker Maroon on hover */
+}
+
+/* Footer Links (Forgot Password | Sign Up) */
+.auth-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.auth-footer a {
+    color: var(--accent); 
+    font-weight: 600;
+}
+
+.auth-footer .separator {
+    color: var(--muted);
+}
+
+/* --- Role Selector Styles --- */
+
+.role-selector {
+    display: flex;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    overflow: hidden; 
+    width: 100%;
+}
+
+.role-button {
+    flex-grow: 1; 
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #f9fafb; 
+    color: #4b5563;
+    border: none; 
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Button ke beech mein divider */
+.role-button:first-child {
+    border-right: 1px solid #d1d5db;
+}
+
+/* Hover state */
+.role-button:hover:not(.active) {
+    background-color: #f3f4f6;
+}
+
+/* Active/Selected state */
+.role-button.active {
+    background-color: var(--maroon); 
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 850px) {
+    .auth-container {
+        grid-template-columns: 1fr; 
+        max-width: 450px;
+    }
+    .promo-card {
+        display: none; /* Image card hidden on mobile */
+    }
+}

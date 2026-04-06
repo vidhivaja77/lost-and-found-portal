@@ -1,0 +1,229 @@
+/* src/pages/AddItem.css */
+
+:root {
+    --maroon: #4A051D; /* UniFind Primary Color */
+    --accent: #FF8800; /* Accent Color (Buttons, Focus) */
+    --text: #111827; 
+    --bg: #F3F4F6; /* Light gray background */
+    --card: #FFFFFF; /* White card background */
+    --muted: #6b7280;
+    --border-color: #E5E7EB;
+}
+
+/* --- Main Page Container --- */
+.add-item-page {
+    /* Use var(--bg) defined above */
+    background: var(--bg);
+    min-height: calc(100vh - 78px);
+    /* 👇 EDITED: Reduced padding-top to 5px to move the card even further up */
+    padding: 5px 20px; 
+    display: flex;
+    justify-content: center;
+}
+
+.form-layout {
+    width: 100%;
+    max-width: 1100px; /* Setting max width for better structure */
+    display: grid;
+    /* 💥 KEY CHANGE 1: Reduced sidebar width from 280px to 220px to reduce gap */
+    grid-template-columns: 220px 1fr; /* Left sidebar width reduced, Right content auto */
+    /* Remove gap and rely on padding within sections */
+    gap: 0; 
+    background: var(--card); 
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Left Sidebar (Stepper & Upload) --- */
+.sidebar {
+    /* Padding adjusted for tighter look */
+    padding: 30px 0 30px 20px; 
+    /* border-right moved here */
+    border-right: 1px solid #e0e0e0; /* Vertical separator */
+    
+}
+
+.photo-upload-box {
+    /* 💥 KEY CHANGE 2: Added solid border and increased thickness to match image */
+    background: #f8f8f8;
+    border: 1px solid var(--border-color); /* Changed from dashed to solid, using muted border color */
+    border-radius: 8px;
+    padding: 15px; /* Slightly increased padding for better icon space */
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+    /* 💥 ADDED: Box shadow to give it that "raised" look */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.photo-upload-box input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Stepper Navigation */
+.stepper-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.step-item.active {
+    /* Using var(--maroon) for accent color */
+    border-left-color: var(--maroon); 
+    background: #fcfcfc;
+    padding-left: 10px;
+    color: var(--maroon);
+}
+
+.step-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-right: 15px;
+}
+
+.step-item.active .step-number {
+    /* Using var(--maroon) for accent color */
+    color: var(--maroon);
+}
+
+.step-subtitle {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin: 0;
+}
+
+.step-item.active .step-subtitle {
+    /* Using var(--maroon) for accent color */
+    color: var(--maroon);
+}
+
+.step-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0;
+    color: #111827;
+}
+
+/* --- Right Form Content --- */
+
+.form-content-area {
+    /* 💥 KEY CHANGE 3: Reduced padding on the left from 50px to 30px to close the gap */
+    padding: 30px 30px 30px 30px; 
+    box-sizing: border-box;
+}
+
+.form-page-title {
+    /* Using var(--maroon) for titles */
+    font-size: 2rem;
+    color: var(--maroon); 
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.form-page-subtext {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.actual-form h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    /* Using var(--maroon) for section headers */
+    color: var(--maroon); 
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* General Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    /* Using var(--accent) for focus */
+    border-color: var(--accent); 
+    box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Layout for side-by-side fields */
+.location-date-group {
+    display: flex;
+    gap: 20px;
+}
+.half-width {
+    flex: 1; 
+}
+
+/* Actions (Buttons) */
+.form-actions {
+    margin-top: 30px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 25px;
+    display: flex;
+    justify-content: flex-end; /* Buttons right-aligned */
+    gap: 15px;
+}
+
+.form-actions .btn {
+    padding: 10px 20px;
+}
+
+.form-actions .btn-primary {
+    /* Primary button color uses accent */
+    background-color: var(--accent);
+    color: white;
+}
+.form-actions .btn-primary:hover {
+    background-color: #e67a00;
+}
+
+.form-actions .btn-secondary {
+    background: #f3f4f6;
+    color: #1f2937;
+}
