@@ -23,17 +23,18 @@ users report, browse, and manage lost and found items easily.
 | Other | REST APIs, JWT Authentication, Git |
 
 ## 📁 Project Structure
+```
 lost-and-found-portal/
 ├── src/
-│   ├── components/    # Reusable React components
-│   ├── pages/         # Page components
-│   └── App.js         # Main app file
-├── public/            # Static files
-├── backend/
-│   ├── models/        # MongoDB schemas
-│   ├── routes/        # API routes
-│   └── server.js      # Entry point
+│   ├── components/
+│   ├── pages/
+│   └── App.js
+├── public/
+├── server.js
+├── models/
+├── routes/
 └── README.md
+```
 ## 🚀 How to Run Locally
 ```bash
 # Clone the repository
